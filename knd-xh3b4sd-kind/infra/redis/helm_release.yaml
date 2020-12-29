@@ -13,6 +13,9 @@ spec:
         namespace: "infra"
   dependsOn:
     - name: "redis-operator"
+  install:
+    remediation:
+      retries: 3
   interval: "1m"
 ---
 apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
@@ -28,4 +31,7 @@ spec:
         kind: "GitRepository"
         name: "redis"
         namespace: "infra"
+  install:
+    remediation:
+      retries: 3
   interval: "1m"
