@@ -14,9 +14,6 @@ spec:
   dependsOn:
     - name: "release-operator"
   interval: "1m"
-  values:
-    image:
-      tag: "5d255b7fea6a345b02242e0833e973d4f0bad061"
 ---
 apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
 kind: "HelmRelease"
@@ -32,6 +29,3 @@ spec:
         name: "redis"
         namespace: "infra"
   interval: "1m"
-  values:
-    image:
-      tag: "5d255b7fea6a345b02242e0833e973d4f0bad061"
