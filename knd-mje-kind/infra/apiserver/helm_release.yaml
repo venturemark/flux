@@ -13,7 +13,7 @@ spec:
         namespace: "infra"
   install:
     remediation:
-      retries: 3
+      retries: -1
   interval: "1m"
   values:
     image:
