@@ -11,7 +11,10 @@ spec:
         kind: "GitRepository"
         name: "apiserver"
         namespace: "infra"
+  install:
+    remediation:
+      retries: 3
   interval: "1m"
   values:
     image:
-      tag: "a863618710b24a5c6b1480897f4b0b99d3d4839e"
+      tag: "5e575697e27448f95da9b0c231c4aa68c1f4bdf6"
