@@ -16,5 +16,8 @@ spec:
       retries: -1
   interval: "1m"
   values:
+    cluster:
+      name: "kia05"
+      zone: "aws.venturemark.co"
     image:
       tag: "5e575697e27448f95da9b0c231c4aa68c1f4bdf6"
