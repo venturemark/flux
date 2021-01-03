@@ -1,0 +1,25 @@
+apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
+kind: "HelmRelease"
+metadata:
+  name: "webclient"
+  namespace: "infra"
+spec:
+  chart:
+    spec:
+      chart: "./hlm/webclient"
+      sourceRef:
+        kind: "GitRepository"
+        name: "webclient"
+        namespace: "infra"
+  install:
+    remediation:
+      retries: -1
+  interval: "1m"
+  values:
+    api:
+      endpoint: "https://apiserver.kia05.aws.venturemark.co:443"
+    cluster:
+      name: "kia05"
+      zone: "aws.venturemark.co"
+    image:
+      tag: "f2e65b21c9ad6268751a98f23870a096e35e0c17"
