@@ -1,0 +1,25 @@
+apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
+kind: "HelmRelease"
+metadata:
+  name: "istio-eks"
+  namespace: "infra"
+spec:
+  chart:
+    spec:
+      chart: "./hlm/istio-eks"
+      sourceRef:
+        kind: "GitRepository"
+        name: "istio"
+        namespace: "istio-system"
+  dependsOn:
+    - name: "istio-eks"
+  install:
+    remediation:
+      retries: -1
+  interval: "1m"
+  values:
+    cluster:
+      name: "kia05"
+      zone: "aws.venturemark.co"
+    dns:
+      cname: "public.venturemark.co"
