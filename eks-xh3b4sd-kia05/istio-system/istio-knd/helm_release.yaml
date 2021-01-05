@@ -11,8 +11,6 @@ spec:
         kind: "GitRepository"
         name: "istio-eks"
         namespace: "istio-system"
-  dependsOn:
-    - name: "istio-eks"
   install:
     remediation:
       retries: -1
