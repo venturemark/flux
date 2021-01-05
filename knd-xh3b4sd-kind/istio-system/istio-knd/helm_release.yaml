@@ -1,0 +1,19 @@
+apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
+kind: "HelmRelease"
+metadata:
+  name: "istio-knd"
+  namespace: "infra"
+spec:
+  chart:
+    spec:
+      chart: "./hlm/istio-knd"
+      sourceRef:
+        kind: "GitRepository"
+        name: "istio-knd"
+        namespace: "istio-system"
+  dependsOn:
+    - name: "istio-knd"
+  install:
+    remediation:
+      retries: -1
+  interval: "1m"
