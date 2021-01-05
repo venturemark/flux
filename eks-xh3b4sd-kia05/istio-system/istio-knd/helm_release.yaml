@@ -9,7 +9,7 @@ spec:
       chart: "./hlm/istio-eks"
       sourceRef:
         kind: "GitRepository"
-        name: "istio"
+        name: "istio-eks"
         namespace: "istio-system"
   dependsOn:
     - name: "istio-eks"
