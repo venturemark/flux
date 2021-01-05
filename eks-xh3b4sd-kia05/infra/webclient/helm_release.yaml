@@ -17,9 +17,9 @@ spec:
   interval: "1m"
   values:
     api:
-      endpoint: "https://apiserver.kia05.aws.venturemark.co:443"
+      endpoint: "https://apiserver.kia06.aws.venturemark.co:443"
     cluster:
-      name: "kia05"
+      name: "kia06"
       zone: "aws.venturemark.co"
     image:
       tag: "f1e1f85729e1b3c3ccf7c052206ee9db08a9e8c1"

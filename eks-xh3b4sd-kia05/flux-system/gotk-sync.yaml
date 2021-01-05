@@ -19,7 +19,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./eks-xh3b4sd-kia05
+  path: ./eks-xh3b4sd-kia06
   prune: true
   sourceRef:
     kind: GitRepository

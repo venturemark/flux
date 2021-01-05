@@ -17,7 +17,7 @@ spec:
   interval: "1m"
   values:
     cluster:
-      name: "kia05"
+      name: "kia06"
       zone: "aws.venturemark.co"
     image:
       tag: "cfec2d7c70318590768832a0fe8e8466e9a9ad5f"
