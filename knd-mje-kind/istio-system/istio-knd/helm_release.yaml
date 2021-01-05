@@ -2,7 +2,7 @@ apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
 kind: "HelmRelease"
 metadata:
   name: "istio-knd"
-  namespace: "infra"
+  namespace: "istio-system"
 spec:
   chart:
     spec:
