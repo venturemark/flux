@@ -19,5 +19,3 @@ spec:
     cluster:
       name: "kia05"
       zone: "aws.venturemark.co"
-    dns:
-      cname: "public.venturemark.co"
