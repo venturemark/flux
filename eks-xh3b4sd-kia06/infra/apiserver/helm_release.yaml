@@ -20,4 +20,4 @@ spec:
       name: "kia06"
       zone: "aws.venturemark.co"
     image:
-      tag: "8469445410f8a74d72af0cf430ed8dd44fb6b8fa"
+      tag: "4acc2649873c59f59c0211e722ce0882525b6c5c"
