@@ -19,3 +19,5 @@ spec:
     cluster:
       name: "kia06"
       zone: "aws.venturemark.co"
+    dns:
+      cname: "alpha.venturemark.co"
