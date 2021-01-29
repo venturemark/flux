@@ -21,5 +21,7 @@ spec:
     cluster:
       name: "kia07"
       zone: "aws.venturemark.co"
+    dns:
+      cname: "alpha.venturemark.co"
     image:
       tag: "8d047786dfd0ea75e1af051c6b001305e1da4bf4"
