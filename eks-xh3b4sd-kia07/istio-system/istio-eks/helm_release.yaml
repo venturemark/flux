@@ -20,4 +20,4 @@ spec:
       name: "kia07"
       zone: "aws.venturemark.co"
     dns:
-      cname: "alpha.venturemark.co"
+      cname: "beta.venturemark.co"
