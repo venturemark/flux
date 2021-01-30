@@ -1,20 +1,20 @@
-apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
-kind: "HelmRelease"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
 metadata:
-  name: "apiserver"
-  namespace: "infra"
+  name: apiserver
+  namespace: infra
 spec:
   chart:
     spec:
-      chart: "./hlm/apiserver"
+      chart: ./hlm/apiserver
       sourceRef:
-        kind: "GitRepository"
-        name: "apiserver"
-        namespace: "infra"
+        kind: GitRepository
+        name: apiserver
+        namespace: infra
   install:
     remediation:
       retries: -1
-  interval: "1m"
+  interval: 1m
   values:
     image:
-      tag: "4acc2649873c59f59c0211e722ce0882525b6c5c"
+      tag: aab6d6bafc2974af298bcafed556141f29689215
