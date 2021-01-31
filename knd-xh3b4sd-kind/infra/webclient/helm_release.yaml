@@ -1,22 +1,22 @@
-apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
-kind: "HelmRelease"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
 metadata:
-  name: "webclient"
-  namespace: "infra"
+  name: webclient
+  namespace: infra
 spec:
   chart:
     spec:
-      chart: "./hlm/webclient"
+      chart: ./hlm/webclient
       sourceRef:
-        kind: "GitRepository"
-        name: "webclient"
-        namespace: "infra"
+        kind: GitRepository
+        name: webclient
+        namespace: infra
   install:
     remediation:
       retries: -1
-  interval: "1m"
+  interval: 1m
   values:
     api:
-      endpoint: "http://127.0.0.1:7777"
+      endpoint: http://127.0.0.1:7777
     image:
-      tag: "8d047786dfd0ea75e1af051c6b001305e1da4bf4"
+      tag: 5c07886412ba5e1b31ec94b63829a7c6ed4b1c3d

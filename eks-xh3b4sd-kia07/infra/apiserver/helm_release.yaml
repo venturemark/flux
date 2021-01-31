@@ -1,23 +1,23 @@
-apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
-kind: "HelmRelease"
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
 metadata:
-  name: "apiserver"
-  namespace: "infra"
+  name: apiserver
+  namespace: infra
 spec:
   chart:
     spec:
-      chart: "./hlm/apiserver"
+      chart: ./hlm/apiserver
       sourceRef:
-        kind: "GitRepository"
-        name: "apiserver"
-        namespace: "infra"
+        kind: GitRepository
+        name: apiserver
+        namespace: infra
   install:
     remediation:
       retries: -1
-  interval: "1m"
+  interval: 1m
   values:
     cluster:
-      name: "kia07"
-      zone: "aws.venturemark.co"
+      name: kia07
+      zone: aws.venturemark.co
     image:
-      tag: "4acc2649873c59f59c0211e722ce0882525b6c5c"
+      tag: 160cf044a2f485a7bca25e61aeb34b5669bd3e2a
