@@ -17,5 +17,7 @@ spec:
   interval: "1m"
   values:
     cluster:
-      name: "kia06"
+      name: "kia07"
       zone: "aws.venturemark.co"
+    dns:
+      cname: "beta.venturemark.co"

@@ -16,6 +16,8 @@ spec:
       retries: -1
   interval: 1m
   values:
+    cluster:
+      name: kia07
+      zone: aws.venturemark.co
     image:
-      tag: "005476376d3a30ea0351891a1e630beed59b2f7c"
-
+      tag: 160cf044a2f485a7bca25e61aeb34b5669bd3e2a

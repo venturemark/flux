@@ -1,15 +1,15 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: apiserver
+  name: apiworker
   namespace: infra
 spec:
   chart:
     spec:
-      chart: ./hlm/apiserver
+      chart: ./hlm/apiworker
       sourceRef:
         kind: GitRepository
-        name: apiserver
+        name: apiworker
         namespace: infra
   install:
     remediation:
@@ -17,5 +17,4 @@ spec:
   interval: 1m
   values:
     image:
-      tag: "005476376d3a30ea0351891a1e630beed59b2f7c"
-
+      tag: 79633650a8fd5338443290f62e0de300751ef264

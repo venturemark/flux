@@ -17,6 +17,11 @@ spec:
   interval: 1m
   values:
     api:
-      endpoint: http://127.0.0.1:7777
+      endpoint: https://apiserver.kia07.aws.venturemark.co:443
+    cluster:
+      name: kia07
+      zone: aws.venturemark.co
+    dns:
+      cname: beta.venturemark.co
     image:
       tag: 5c07886412ba5e1b31ec94b63829a7c6ed4b1c3d
