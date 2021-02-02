@@ -37,8 +37,8 @@ jobs:
 
       - name: "Install Race Dependency"
         run: |
-          apt update
-          apt install gcc -y
+          sudo apt update
+          sudo apt install gcc -y
 
       - name: "Check Go Tests"
         env:
