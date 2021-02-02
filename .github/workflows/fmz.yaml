@@ -52,7 +52,7 @@ jobs:
           REDIS_HOST: "redis"
           REDIS_PORT: "6379"
         run: |
-          cd ${{ runner.temp }}/venturemark/apiserver && go run . daemon &
-          cd ${{ runner.temp }}/venturemark/apiworker && go run . daemon &
-          cd ${{ runner.temp }}/venturemark/fmz && go test ./... -race -tags conformance
+          cd ${{ github.workspace }}/venturemark/apiserver && go run . daemon &
+          cd ${{ github.workspace }}/venturemark/apiworker && go run . daemon &
+          cd ${{ github.workspace }}/venturemark/fmz && go test ./... -race -tags conformance
           pkill go
