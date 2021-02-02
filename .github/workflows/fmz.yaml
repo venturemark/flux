@@ -49,10 +49,8 @@ jobs:
       - name: "Check Go Tests"
         env:
           CGO_ENABLED: "1"
-          REDIS_HOST: "redis"
-          REDIS_PORT: "6379"
         run: |
-          cd ./venturemark/apiserver && go run . daemon &
-          cd ./venturemark/apiworker && go run . daemon &
+          cd ./venturemark/apiserver && go run . daemon --redis-host redis &
+          cd ./venturemark/apiworker && go run . daemon --redis-host redis &
           cd ./venturemark/fmz && go test ./... -race -tags conformance
           pkill go
