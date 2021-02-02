@@ -19,21 +19,11 @@ jobs:
     steps:
       - name: "Checkout Git Project"
         uses: "actions/checkout@v2"
-        with:
-          path: "venturemark/apiserver"
-          repository: "venturemark/apiserver"
 
-      - name: "Checkout Git Project"
-        uses: "actions/checkout@v2"
-        with:
-          path: "venturemark/apiworker"
-          repository: "venturemark/apiworker"
-
-      - name: "Checkout Git Project"
-        uses: "actions/checkout@v2"
-        with:
-          path: "venturemark/flux"
-          repository: "venturemark/flux"
+      - name: "Build Go Binary"
+        run: |
+          go get github.com/venturemark/apiserver
+          go get github.com/venturemark/apiworker
 
       - name: "Checkout Git Project"
         uses: "actions/checkout@v2"
@@ -52,7 +42,7 @@ jobs:
           REDIS_HOST: "redis"
           REDIS_PORT: "6379"
         run: |
-          cd ./venturemark/apiserver && go run . daemon --redis-host ${REDIS_HOST} --redis-port ${REDIS_PORT} &
-          cd ./venturemark/apiworker && go run . daemon --redis-host ${REDIS_HOST} --redis-port ${REDIS_PORT} &
+          apiserver daemon --redis-host ${REDIS_HOST} --redis-port ${REDIS_PORT} &
+          apiworker daemon --redis-host ${REDIS_HOST} --redis-port ${REDIS_PORT} &
           cd ./venturemark/fmz && go test ./... -race -tags conformance
           pkill go
