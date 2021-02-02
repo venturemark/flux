@@ -14,6 +14,8 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          - 6379:6379
 
     steps:
       - name: "Checkout Git Project"
@@ -43,10 +45,7 @@ jobs:
       - name: "Check Go Tests"
         env:
           CGO_ENABLED: "1"
-          REDIS_HOST: "redis"
-          REDIS_PORT: "6379"
         run: |
-          apiserver daemon --redis-host ${REDIS_HOST} --redis-port ${REDIS_PORT} &
-          apiworker daemon --redis-host ${REDIS_HOST} --redis-port ${REDIS_PORT} &
+          apiserver daemon &
+          apiworker daemon &
           cd ./venturemark/fmz && go test ./... -race -tags conformance
-          pkill go
