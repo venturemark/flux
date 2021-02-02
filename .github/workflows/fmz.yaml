@@ -37,8 +37,8 @@ jobs:
 
       - name: "Install Race Dependency"
         run: |
-          apk add gcc
-          apk add musl-dev
+          apt update
+          apt install gcc -y
 
       - name: "Check Go Tests"
         env:
