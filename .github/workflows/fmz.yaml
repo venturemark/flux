@@ -1,0 +1,58 @@
+name: "fmz"
+
+on: "push"
+
+jobs:
+  fmz:
+    runs-on: "ubuntu-latest"
+    container: "golang:1.15-alpine"
+
+    services:
+      redis:
+        image: "redis"
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+      - name: "Checkout Git Project"
+        uses: "actions/checkout@v2"
+        with:
+          path: "venturemark/apiserver"
+          repository: "venturemark/apiserver"
+
+      - name: "Checkout Git Project"
+        uses: "actions/checkout@v2"
+        with:
+          path: "venturemark/apiworker"
+          repository: "venturemark/apiworker"
+
+      - name: "Checkout Git Project"
+        uses: "actions/checkout@v2"
+        with:
+          path: "venturemark/flux"
+          repository: "venturemark/flux"
+
+      - name: "Checkout Git Project"
+        uses: "actions/checkout@v2"
+        with:
+          path: "venturemark/fmz"
+          repository: "venturemark/fmz"
+
+      - name: "Install Race Dependency"
+        run: |
+          apk add gcc
+          apk add musl-dev
+
+      - name: "Check Go Tests"
+        env:
+          CGO_ENABLED: "1"
+          REDIS_HOST: "redis"
+          REDIS_PORT: "6379"
+        run: |
+          cd ${{ runner.temp }}/venturemark/apiserver && go run . daemon &
+          cd ${{ runner.temp }}/venturemark/apiworker && go run . daemon &
+          cd ${{ runner.temp }}/venturemark/fmz && go test ./... -race -tags conformance
+          pkill go
