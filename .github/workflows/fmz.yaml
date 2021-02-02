@@ -1,0 +1,51 @@
+name: "fmz"
+
+on: "push"
+
+jobs:
+  fmz:
+    runs-on: "ubuntu-latest"
+
+    services:
+      redis:
+        image: "redis"
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
+    steps:
+      - name: "Checkout Git Project"
+        uses: "actions/checkout@v2"
+
+      - name: "Checkout Git Project"
+        uses: "actions/checkout@v2"
+        with:
+          path: "venturemark/fmz"
+          repository: "venturemark/fmz"
+
+      - name: Setup Go Env
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.15.2"
+
+      - name: "Build Go Binary"
+        run: |
+          go get github.com/venturemark/apiserver
+          go get github.com/venturemark/apiworker
+
+      - name: "Install Race Dependency"
+        run: |
+          sudo apt update
+          sudo apt install gcc -y
+
+      - name: "Check Go Tests"
+        env:
+          CGO_ENABLED: "1"
+        run: |
+          apiserver daemon &
+          apiworker daemon &
+          cd ./venturemark/fmz && go test ./... -race -tags conformance
