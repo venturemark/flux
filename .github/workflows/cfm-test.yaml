@@ -1,9 +1,9 @@
-name: "fmz"
+name: "cfm-test"
 
 on: "push"
 
 jobs:
-  fmz:
+  cfm-test:
     runs-on: "ubuntu-latest"
 
     services:
