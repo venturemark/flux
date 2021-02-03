@@ -1,3 +1,10 @@
+#
+# Do not edit. This file was generated via the "workflow" command line tool.
+# More information about the tool can be found at github.com/xh3b4sd/workflow.
+#
+#     workflow create dsmverify
+#
+
 name: "dsm-verify"
 
 on: "push"
@@ -7,26 +14,26 @@ jobs:
     runs-on: "ubuntu-latest"
 
     steps:
-      - name: "Checkout Git Project"
+      - name: "Setup Git Project"
         uses: "actions/checkout@v2"
 
-      - name: Setup Go Env
+      - name: "Setup Go Env"
         uses: actions/setup-go@v2
         with:
           go-version: "1.15.2"
 
-      - name: "Install DSM Dependency"
+      - name: "Install Test Dependency"
         run: |
           go get github.com/xh3b4sd/dsm
 
-      - name: "Verify ApiServer Version"
+      - name: "Check ApiServer Version"
         run: |
           dsm verify -r HelmRelease -n apiserver -k spec.values.image.tag
 
-      - name: "Verify ApiWorker Version"
+      - name: "Check ApiWorker Version"
         run: |
           dsm verify -r HelmRelease -n apiworker -k spec.values.image.tag
 
-      - name: "Verify Webclient Version"
+      - name: "Check WebClient Version"
         run: |
-          dsm verify -r HelmRelease -n Webclient -k spec.values.image.tag
+          dsm verify -r HelmRelease -n webclient -k spec.values.image.tag
