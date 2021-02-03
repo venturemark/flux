@@ -17,7 +17,7 @@ jobs:
 
       - name: "Install DSM Dependency"
         run: |
-          go get github.com/venturemark/dsm
+          go get github.com/xh3b4sd/dsm
 
       - name: "Verify ApiServer Version"
         run: |
