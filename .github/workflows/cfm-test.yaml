@@ -1,3 +1,10 @@
+#
+# Do not edit. This file was generated via the "workflow" command line tool.
+# More information about the tool can be found at github.com/xh3b4sd/workflow.
+#
+#     workflow create cfmtest
+#
+
 name: "cfm-test"
 
 on: "push"
@@ -18,31 +25,40 @@ jobs:
           - 6379:6379
 
     steps:
-      - name: "Checkout Git Project"
+      - name: "Setup Git Project"
         uses: "actions/checkout@v2"
+          path: "venturemark/flux"
+          repository: "venturemark/flux"
 
-      - name: "Checkout Git Project"
+      - name: "Setup Git Project"
         uses: "actions/checkout@v2"
         with:
           path: "venturemark/fmz"
           repository: "venturemark/fmz"
 
-      - name: Setup Go Env
+      - name: "Setup Go Env"
         uses: actions/setup-go@v2
         with:
           go-version: "1.15.2"
 
-      - name: "Build Go Binary"
+      - name: "Install Test Dependency"
         run: |
-          go get github.com/venturemark/apiserver
-          go get github.com/venturemark/apiworker
+          go get github.com/venturemark/apiserver@$(dsm search -r HelmRelease -n apiserver -k spec.values.image.tag | head -n 1)
 
-      - name: "Install Race Dependency"
+      - name: "Install Test Dependency"
+        run: |
+          go get github.com/venturemark/apiworker@$(dsm search -r HelmRelease -n apiworker -k spec.values.image.tag | head -n 1)
+
+      - name: "Install Test Dependency"
+        run: |
+          go get github.com/venturemark/fmz
+
+      - name: "Install Test Dependency"
         run: |
           sudo apt update
           sudo apt install gcc -y
 
-      - name: "Check Go Tests"
+      - name: "Check Conformance Tests"
         env:
           CGO_ENABLED: "1"
         run: |
