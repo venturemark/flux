@@ -25,3 +25,4 @@ spec:
       cname: beta.venturemark.co
     image:
       tag: 2f6cb15ba0d0fe3d55120f09f7078421a655bbad
+
