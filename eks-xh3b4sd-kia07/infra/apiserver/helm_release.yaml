@@ -20,4 +20,4 @@ spec:
       name: kia07
       zone: aws.venturemark.co
     image:
-      tag: 16a16beda48926b53375f957d8363c7ab4915ce2
+      tag: 6ad83258d41e54cabd8ff3e002c074e394ffd16c
