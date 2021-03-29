@@ -17,4 +17,4 @@ spec:
   interval: 1m
   values:
     image:
-      tag: b87a7b8fe238f47ed9fd89fdfb0da98ba10a1367
+      tag: fb74873a9d5acaa7f5084135785cf527b00087dd
