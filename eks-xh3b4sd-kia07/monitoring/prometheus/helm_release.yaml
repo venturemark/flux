@@ -19,5 +19,3 @@ spec:
     cluster:
       name: kia07
       zone: aws.venturemark.co
-    dns:
-      cname: beta.venturemark.co
