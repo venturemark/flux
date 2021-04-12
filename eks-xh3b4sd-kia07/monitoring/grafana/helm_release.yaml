@@ -1,0 +1,21 @@
+apiVersion: "helm.toolkit.fluxcd.io/v2beta1"
+kind: "HelmRelease"
+metadata:
+  name: "grafana"
+  namespace: "monitoring"
+spec:
+  chart:
+    spec:
+      chart: "./hlm/grafana"
+      sourceRef:
+        kind: "GitRepository"
+        name: "grafana"
+        namespace: "monitoring"
+  install:
+    remediation:
+      retries: -1
+  interval: "1m"
+  values:
+    cluster:
+      name: kia07
+      zone: aws.venturemark.co
