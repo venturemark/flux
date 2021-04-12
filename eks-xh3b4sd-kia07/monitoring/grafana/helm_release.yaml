@@ -17,5 +17,5 @@ spec:
   interval: "1m"
   values:
     cluster:
-      name: kia07
-      zone: aws.venturemark.co
+      name: "kia07"
+      zone: "aws.venturemark.co"
