@@ -19,7 +19,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./knd-mje-kind
+  path: ./knd-thomas-kind
   prune: true
   sourceRef:
     kind: GitRepository
