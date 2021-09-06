@@ -19,4 +19,4 @@ spec:
     api:
       endpoint: http://127.0.0.1:7777
     image:
-      tag: 0d4a97d720ad2726b79a6b75f4f3d389c7b7a9d1
+      tag: f762aa9b4d43458c9f37e5b575542670df2bfb9f
