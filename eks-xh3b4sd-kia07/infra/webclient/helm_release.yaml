@@ -24,4 +24,4 @@ spec:
     dns:
       cname: beta.venturemark.co
     image:
-      tag: 60f4d34292218d3e1978e895c62eef099de0bb8e
+      tag: 4d7ed7a5f79395684c2aac0f713ea74165fe3a50
