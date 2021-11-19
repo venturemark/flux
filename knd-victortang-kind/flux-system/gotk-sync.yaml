@@ -19,7 +19,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./knd-xh3b4sd-kind
+  path: ./knd-victortang-kind
   prune: true
   sourceRef:
     kind: GitRepository
