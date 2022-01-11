@@ -18,6 +18,6 @@ spec:
   values:
     cluster:
       name: kia07
-      zone: aws.venturemark.co
+      zone: aws.breadcrumb.so
     image:
       tag: 7c86651b0703828fe1b9576dea428900c544c4ec
