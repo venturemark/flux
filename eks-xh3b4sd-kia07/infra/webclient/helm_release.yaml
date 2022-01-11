@@ -17,11 +17,11 @@ spec:
   interval: 1m
   values:
     api:
-      endpoint: https://apiserver.kia07.aws.venturemark.co:443
+      endpoint: https://apiserver.kia07.aws.breadcrumb.so:443
     cluster:
       name: kia07
-      zone: aws.venturemark.co
+      zone: aws.breadcrumb.so
     dns:
-      cname: beta.venturemark.co
+      cname: beta.breadcrumb.so
     image:
       tag: ed8d1901c66a55c8e099830feccc6ba75d1bcdf9
