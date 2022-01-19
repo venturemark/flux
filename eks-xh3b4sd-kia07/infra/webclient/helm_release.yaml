@@ -24,4 +24,4 @@ spec:
     dns:
       cname: beta.breadcrumb.so
     image:
-      tag: 607b58aaff853ccb7def3e5acb5db95df9675223
+      tag: 3d4677d8e1630ccd81c9af22759f24248e29c9fa
