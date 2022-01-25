@@ -20,4 +20,4 @@ spec:
       name: kia07
       zone: aws.breadcrumb.so
     image:
-      tag: 3a16b379b1f4c0d257ab514a27100ed9d733e5f9
+      tag: 4c48539a799a4ee2d36dbae5d91a9392cc7ae762
